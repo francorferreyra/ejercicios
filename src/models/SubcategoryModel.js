@@ -2,28 +2,28 @@ import {DataType} from 'sequelize'
 import { sequelize } from '../database/database'
 
 sequelize.define('account', {
-    rackPrincipalLimpieza: {
+    mainRackCleaning: {
         type: DataType.BLOB
     },
-    rackPrincipalOrden: {
+    mainOrderRack: {
         type: DataType.BLOB
     },
-    funcionamientoAP: {
+    apOperation: {
         type: DataType.STRING
     },
-    funcionamientoTelefono: {
+    telephoneOperation: {
         type: DataType.STRING
     },
     UPS: {
         type: DataType.STRING
     },
-    limparPc: {
+    clearPc: {
         type: DataType.BLOB
     },
-    acomodarCables: {
+    accommodateCables: {
         type: DataType.BLOB
     },
-    checkVisualizacion: {
+    checkDisplay: {
         type: DataType.STRING
     }
 
