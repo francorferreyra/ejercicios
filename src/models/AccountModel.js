@@ -1,7 +1,7 @@
 import {DataType} from 'sequelize'
 import { sequelize } from '../database/database'
 
-sequelize.define('account', {
+export const Account = sequelize.define('account', {
     id: {
         type: DataType.INTEGER,
         primaryKey: true,
@@ -23,3 +23,5 @@ sequelize.define('account', {
     }
     
 })
+
+module.exports = connection.model('Account', Account);
