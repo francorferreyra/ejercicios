@@ -1,30 +1,30 @@
-import {DataType} from 'sequelize'
-import { sequelize } from '../database/database'
+import { DataTypes } from "sequelize";
+import { sequelize } from "../database/database.js";
 
 sequelize.define('account', {
     mainRackCleaning: {
-        type: DataType.BLOB
+        type: DataTypes.BLOB
     },
     mainOrderRack: {
-        type: DataType.BLOB
+        type: DataTypes.BLOB
     },
     apOperation: {
-        type: DataType.STRING
+        type: DataTypes.STRING
     },
     telephoneOperation: {
-        type: DataType.STRING
+        type: DataTypes.STRING
     },
     UPS: {
-        type: DataType.STRING
+        type: DataTypes.STRING
     },
     clearPc: {
-        type: DataType.BLOB
+        type: DataTypes.BLOB
     },
     accommodateCables: {
-        type: DataType.BLOB
+        type: DataTypes.BLOB
     },
     checkDisplay: {
-        type: DataType.STRING
+        type: DataTypes.STRING
     }
 
     

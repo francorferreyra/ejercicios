@@ -1,27 +1,25 @@
-import {DataType} from 'sequelize'
-import { sequelize } from '../database/database'
+import {DataTypes} from 'sequelize'
+import { sequelize } from '../database/database.js'
 
 export const Account = sequelize.define('account', {
     id: {
-        type: DataType.INTEGER,
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoInccrement: true,
     },
     name: {
-        type: DataType.STRING
+        type: DataTypes.STRING
     },
     lastname: {
-        type: DataType.STRING
+        type: DataTypes.STRING
     },
     email: {
-        type: DataType.STRING,
+        type: DataTypes.STRING,
         required: true,
         unique: true,
     },
     password:{
-        type: DataType.STRING
+        type: DataTypes.STRING
     }
     
 })
-
-module.exports = connection.model('Account', Account);
