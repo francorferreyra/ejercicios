@@ -4,6 +4,6 @@ const router = Router()
 
 router.get('/account', getAccounts)
 router.post('/account', createAccount)
-router.get('account/:id')
+router.get('/account/:id')
 
 export default router

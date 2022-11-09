@@ -1,16 +1,19 @@
-import { DataTypes } from "sequelize";
-import { sequelize } from "../database/database.js";
+import {DataTypes} from 'sequelize'
+import { sequelize } from '../database/database.js'
 
-
-sequelize.define('account', {
+export const Category = sequelize.define('category', {
     id: {
         type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoInccrement: true,
+        autoIncrement: true,
+        primaryKey: true
     },
     category: {
         type: DataTypes.STRING
     },
+},
+{
+    timestamps: false,
+  }
+)
 
-    
-})
+await Category.sync()

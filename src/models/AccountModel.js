@@ -4,8 +4,8 @@ import { sequelize } from '../database/database.js'
 export const Account = sequelize.define('account', {
     id: {
         type: DataTypes.INTEGER,
-        primaryKey: true,
-        autoInccrement: true,
+        autoIncrement: true,
+        primaryKey: true
     },
     name: {
         type: DataTypes.STRING
@@ -20,6 +20,11 @@ export const Account = sequelize.define('account', {
     },
     password:{
         type: DataTypes.STRING
-    }
-    
-})
+    },     
+},
+{
+    timestamps: false,
+  }
+)
+
+await Account.sync()
