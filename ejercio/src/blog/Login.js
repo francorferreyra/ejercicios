@@ -1,49 +1,52 @@
+import axios from "axios";
+import { useState, useEffect } from "react";
 
-import axios from 'axios'
-import { useState, useEffect } from 'react'
+const URI = "http://localhost:8000/account/login";
 
-const URI = 'http://localhost:8000/account'
+export const Login = (props) => {
+  const [email, setEmail] = useState();
+  const [pass, setPass] = useState();
+  const [accounts, setAccount] = useState();
 
-const CompLogin = () => {
-    const [accounts, setAccount] = useState([])
-    useEffect(() => {
-        getAccounts()
-    }, [])
 
-    const getAccounts = async ( ) => {
-        const res = await axios.get(URI)
-        setAccount(res.data)
-    }
+  const getAccount = async () => {
+    let res = await fetch(URI, {method: 'post', body:JSON.stringify({email: email, password: pass}), headers: {'Content-Type': 'application/json'}});
+    res = await res.json();
 
-    return(
-        <div className='container'>
-        <div className='row'>
-            <div className='col'>
-                <table className='table'>
-                    <thead className='table-primary'>
-                        <tr>
-                            <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>Email</th>
-                            <th>Rol</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        { accounts.map ( (account) => (
-                            <tr key={ account.id}>
-                                <td> { account.name} </td>
-                                <td> { account.lastname } </td>
-                                <td> { account.email } </td>
-                                <td> { account.rol} </td>
+    console.log(res);
+  };
 
-                            </tr>
-                        )) }
-                    </tbody>
-                </table>
-            </div>    
-        </div>
+  const handleSubmit = (e) => {
+    e.preventDefault();
+  };
+
+  return (
+    <div className="auth-form-container">
+      <h1>Login</h1>
+      <form className="login-form" onSubmit={handleSubmit}>
+        <label htmlFor="email">email</label>
+        <input
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          type="email"
+          placeholder="youremail@gmail.com"
+          id="email"
+          name="email"
+        />
+        <label htmlFor="password">password</label>
+        <input
+          value={pass}
+          onChange={(e) => setPass(e.target.value)}
+          type="password"
+          placeholder="********"
+          id="password"
+          name="password"
+        />
+        <button type="submit" onClick={getAccount}>Logearse</button>
+      </form>
+      <button className="link-btn" onClick={() => props.onFormSwitch('register')}>¿No tienes cuenta? Registrarte aqui.</button>
     </div>
-    )
-}
+  );
+};
 
-export default CompLogin
+// export default CompLogin

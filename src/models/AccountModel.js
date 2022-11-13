@@ -23,7 +23,7 @@ export const Account = sequelize.define('account', {
     },
     rol: {
         type: DataTypes.STRING,
-        enum: ["Microinformatica", "Admin", "o Telecomunicaciones"]
+        enum: ["Microinformatica", "Admin", "Telecomunicaciones"]
     }
 },
 {

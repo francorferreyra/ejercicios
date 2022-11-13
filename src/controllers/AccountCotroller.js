@@ -31,3 +31,14 @@ export const createAccount = async(req, res) => {
    }
     
 }
+
+export const login = async(req, res) => {
+    const {email, password} = req.body
+    try {
+       const account = await Account.findOne({where: {email: email, password: password} })
+        res.json(account)
+
+    } catch(err) {
+        return res.status(500).json({message: err.message})
+    }
+}
