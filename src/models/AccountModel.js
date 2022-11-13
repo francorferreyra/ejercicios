@@ -20,7 +20,11 @@ export const Account = sequelize.define('account', {
     },
     password:{
         type: DataTypes.STRING
-    },     
+    },
+    rol: {
+        type: DataTypes.STRING,
+        enum: ["Microinformatica", "Admin", "o Telecomunicaciones"]
+    }
 },
 {
     timestamps: false,

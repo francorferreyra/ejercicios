@@ -1,5 +1,6 @@
 import {DataTypes} from 'sequelize'
 import { sequelize } from '../database/database.js'
+import { Subcactegory } from './SubcategoryModel.js'
 
 export const Category = sequelize.define('category', {
     id: {
@@ -12,8 +13,18 @@ export const Category = sequelize.define('category', {
     },
 },
 {
-    timestamps: false,
+    timestamps: true,
   }
 )
+
+Category.hasMany(Subcactegory, {
+    foreinkey: 'subcategoryId',
+    sourceKey: 'id'
+})
+
+Subcactegory.belongsTo(Category,{
+    foreinkey: 'subcategoryId',
+    targetId: 'id'
+})
 
 await Category.sync()

@@ -1,5 +1,6 @@
 import { Account } from '../models/AccountModel.js'
 
+
 export const getAccounts = async(req, res)=>{
     try {
         const account = await Account.findAll()
@@ -12,7 +13,7 @@ export const getAccounts = async(req, res)=>{
 }
 
 export const createAccount = async(req, res) => {
-    const {name, lastname, email, password} = req.body
+    const {name, lastname, email, password, rol} = req.body
 
    try {
     const newAccount = await Account.create({
@@ -20,6 +21,7 @@ export const createAccount = async(req, res) => {
         lastname: lastname,
         email: email,
         password: password,
+        rol: rol,
     })
 
     res.json(newAccount)

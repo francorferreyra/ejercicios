@@ -1,7 +1,15 @@
 import { DataTypes } from "sequelize";
 import { sequelize } from "../database/database.js";
 
-sequelize.define('account', {
+export const Subcactegory = sequelize.define('subcategory', {
+    id: {
+        type: DataTypes.INTEGER,
+        autoIncrement: true,
+        primaryKey: true
+    },
+    categoryId: {
+        type:DataTypes.INTEGER
+    },
     mainRackCleaning: {
         type: DataTypes.BLOB
     },
@@ -26,6 +34,6 @@ sequelize.define('account', {
     checkDisplay: {
         type: DataTypes.STRING
     }
-
-    
 })
+
+await Subcactegory.sync()
