@@ -28,6 +28,7 @@ export const Register = (props) => {
     }
     const res = await axios.post(URI, user);
     registerAccount(res.data);
+    props.onFormSwitch("login")
   }
 
   return (

@@ -1,9 +1,11 @@
 import express from "express";
+import multer from 'multer';
 import accountRoute from "./routes/AccountsRoute.js"
 import categoryRoute from "./routes/CategoryRoute.js"
 import subCategoryRoute from "./routes/SubcategoryRoute.js"
 
 const app = express();
+
 app.use(function(req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
     res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
@@ -12,6 +14,8 @@ app.use(function(req, res, next) {
     next();
 });
 app.use(express.json())
+
+
 
 app.use(accountRoute);
 app.use(subCategoryRoute);

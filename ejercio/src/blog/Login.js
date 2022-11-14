@@ -8,12 +8,15 @@ export const Login = (props) => {
   const [pass, setPass] = useState();
   const [accounts, setAccount] = useState();
 
-
   const getAccount = async () => {
-    let res = await fetch(URI, {method: 'post', body:JSON.stringify({email: email, password: pass}), headers: {'Content-Type': 'application/json'}});
+    let res = await fetch(URI, {method: 'post', body:JSON.stringify({email: email, password: pass}), headers: {'Content-Type': 'application/json'}})
     res = await res.json();
 
-    console.log(res);
+    if(res.rol === "Admin" ){
+        props.onFormSwitch('view')
+    } else {
+        props.onFormSwitch('saveData')
+    }
   };
 
   const handleSubmit = (e) => {

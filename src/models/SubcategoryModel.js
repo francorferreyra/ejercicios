@@ -8,13 +8,16 @@ export const Subcactegory = sequelize.define('subcategory', {
         primaryKey: true
     },
     categoryId: {
-        type:DataTypes.INTEGER
+        type:DataTypes.STRING,
+        require: true
     },
+    //images
     mainRackCleaning: {
-        type: DataTypes.BLOB
+        type: DataTypes.STRING,
     },
+    //images
     mainOrderRack: {
-        type: DataTypes.BLOB
+        type: DataTypes.STRING,
     },
     apOperation: {
         type: DataTypes.STRING
@@ -25,11 +28,13 @@ export const Subcactegory = sequelize.define('subcategory', {
     UPS: {
         type: DataTypes.STRING
     },
+    //images
     clearPc: {
-        type: DataTypes.BLOB
+        type: DataTypes.STRING,
     },
+    //images
     accommodateCables: {
-        type: DataTypes.BLOB
+        type: DataTypes.STRING,
     },
     checkDisplay: {
         type: DataTypes.STRING
